@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-import { get } from '@/util/request'
+import { request } from '@/util/request'
 
 const About = () => {
   useEffect(() => {
     async function f() {
-      const a = await get()
+      const a = await request()
       console.log(a, 'a')
     }
     f()

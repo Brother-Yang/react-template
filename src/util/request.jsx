@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const request = axios.create({
+const baseRequest = axios.create({
   baseURL: 'https://jsonplaceholder.typicode.com/posts/1',
   timeout: 5000,
   headers: { 'X-Custom-Header': 'foobar' },
@@ -11,18 +11,25 @@ const request = axios.create({
  * @param {url} url
  * @returns
  */
-const get = ({ url = '', params = {}, ...options } = {}) => {
-  return new Promise((resolve) => {
-    request({
-      method: 'get',
+const request = ({
+  url = '',
+  params = {},
+  method = 'get',
+  ...options
+} = {}) => {
+  return new Promise((resolve, reject) => {
+    baseRequest({
+      method,
       params,
       url,
       ...options,
-    }).then((res) => {
-      if (res.status === 200) {
-        resolve(res.data)
-      }
     })
+      .then((res) => {
+        if (res.status === 200) {
+          resolve(res.data)
+        }
+      })
+      .catch((err) => reject(err.message))
   })
 }
-export { get }
+export { request }
