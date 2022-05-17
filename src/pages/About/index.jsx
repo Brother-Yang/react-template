@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react'
-import { request } from '@/util/request'
+import React from 'react'
+import { useRequestHook } from '@/util/requestHook'
 
 const About = () => {
-  useEffect(() => {
-    async function f() {
-      const a = await request()
-      console.log(a, 'a')
-    }
-    f()
-  }, [])
-  return <div>About!</div>
+  const demo = useRequestHook()
+  return (
+    <div
+      onClick={() => {
+        demo.run({ url: '/posts/2' })
+      }}
+    >
+      About!{`${demo.loading ? '请求开始' : '请求完事'}`}
+    </div>
+  )
 }
 
 export default About
