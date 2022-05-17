@@ -3,7 +3,8 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  mode: 'development',
+  // mode: 'development',
+  mode: 'production',
   entry: path.join(__dirname, './src/index.jsx'),
   output: {
     path: path.join(__dirname, './dist'),
@@ -12,6 +13,8 @@ module.exports = {
   devServer: {
     port: 3008,
     open: true,
+    // 刷新页面报错
+    historyApiFallback: true,
   },
   module: {
     rules: [
