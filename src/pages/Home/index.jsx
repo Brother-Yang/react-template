@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate, Outlet } from 'react-router-dom'
+import './index.less'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -7,9 +8,11 @@ const Home = () => {
     navigate('/demo')
   }
   return (
-    <div>
+    <div className="box">
       我是home页
-      <div onClick={go}>点击</div>
+      <div onClick={go} className="text">
+        点击
+      </div>
       <Outlet />
     </div>
   )

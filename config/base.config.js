@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: path.join(__dirname, './../src/index.jsx'),
@@ -23,6 +24,16 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          'css-loader',
+          'less-loader',
+        ],
+      },
     ],
   },
   plugins: [
@@ -30,6 +41,7 @@ module.exports = {
       title: 'react-template',
       template: './public/index.html',
     }),
+    new MiniCssExtractPlugin({ filename: '[name].[contenthash:8].css' }),
     new CleanWebpackPlugin(),
   ],
 }
