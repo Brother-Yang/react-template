@@ -30,7 +30,16 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
           },
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              // 开启css模块化
+              modules: {
+                namedExport: false,
+                localIdentName: '[local]--[hash:base64:5]',
+              },
+            },
+          },
           'less-loader',
         ],
       },
