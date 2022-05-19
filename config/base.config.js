@@ -1,19 +1,18 @@
 const path = require('path')
-
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-  mode: 'development',
-  entry: path.join(__dirname, './src/index.jsx'),
+  entry: path.join(__dirname, './../src/index.jsx'),
   output: {
-    path: path.join(__dirname, './dist'),
-    filename: 'bundle[hash].js',
+    path: path.join(__dirname, './../dist'),
+    filename: '[name].[chunkhash:8].js',
   },
-  devServer: {
-    port: 3008,
-    open: true,
-    // 刷新页面报错
-    historyApiFallback: true,
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      '@': path.join(__dirname, './../src'),
+    },
   },
   module: {
     rules: [
@@ -31,11 +30,6 @@ module.exports = {
       title: 'react-template',
       template: './public/index.html',
     }),
+    new CleanWebpackPlugin(),
   ],
-  resolve: {
-    extensions: ['.js', '.jsx'],
-    alias: {
-      '@': path.join(__dirname, './src'),
-    },
-  },
 }

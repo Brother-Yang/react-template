@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve",
-    "build": "webpack build"
+    "start:dev": "cross-env NODE_ENV=dev webpack serve --config ./config/dev.config.js",
+    "start:stg": "cross-env NODE_ENV=stg webpack serve --config ./config/stg.config.js",
+    "build:dev": "webpack build --config ./config/dev.config.js",
+    "build:stg": "webpack build --config ./config/stg.config.js"
   },
   "keywords": [],
   "author": "",
@@ -27,9 +30,12 @@
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "cross-env": "^7.0.3",
     "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.9.0"
+    "webpack-dev-server": "^4.9.0",
+    "webpack-merge": "^5.8.0"
   }
 }
