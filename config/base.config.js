@@ -26,6 +26,27 @@ module.exports = {
       },
       {
         test: /\.less$/,
+        include: /node_modules/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                javascriptEnabled: true,
+              },
+            },
+          },
+        ],
+      },
+      {
+        test: /\.less$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -34,13 +55,21 @@ module.exports = {
             loader: 'css-loader',
             options: {
               // 开启css模块化
+              esModule: true,
               modules: {
                 namedExport: false,
                 localIdentName: '[path][name]-[local]--[hash:base64:5]',
               },
             },
           },
-          'less-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                javascriptEnabled: true,
+              },
+            },
+          },
         ],
       },
     ],
