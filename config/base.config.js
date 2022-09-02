@@ -8,6 +8,8 @@ module.exports = {
   output: {
     path: path.join(__dirname, './../dist'),
     filename: '[name].[chunkhash:8].js',
+    // 配合historyApiFallback，解决嵌套路由刷新报错
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
