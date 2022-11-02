@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { store } from './store'
 import { Provider } from 'react-redux'
+import 'antd/dist/antd.less'
 
 import App from './App'
 
@@ -14,5 +15,5 @@ root.render(
         <App />
       </Provider>
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
