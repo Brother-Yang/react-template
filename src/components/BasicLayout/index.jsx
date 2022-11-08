@@ -10,6 +10,7 @@ import styles from './index.less'
 
 const flatArr = {}
 
+// 根据id找路径
 const findRoutePathById = (id) => {
   if (!Object.keys(flatArr).length) forEachRoutes(routes)
   return flatArr[id]
@@ -32,7 +33,7 @@ const forEachRoutes = (routes, prefix = '') => {
   })
 }
 
-// 子菜单
+// 遍历子菜单
 const getChildMenus = (menu) => {
   return menu?.map((item) => {
     if (item?.children) {
@@ -53,6 +54,7 @@ const getChildMenus = (menu) => {
 const BasicLayout = () => {
   const navigate = useNavigate()
   const location = useLocation()
+
   // 菜单
   const getSideMenuItems = () => {
     const sideMenus = routes?.[0]?.children?.filter((item) => item?.id && item?.children)
