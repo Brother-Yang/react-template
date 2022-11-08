@@ -2,12 +2,14 @@ import React from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
-import { sideMenus } from '@/router/api'
+import routes from '@/router'
 
 import styles from './index.less'
 
 const SystemHeader = () => {
   const navigate = useNavigate()
+
+  const sideMenus = routes?.[0]?.children?.filter((item) => item?.id)
 
   return (
     <div className={styles.SystemHeader}>

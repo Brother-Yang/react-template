@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import 'antd/dist/antd.less'
 import './index.less'
 
-import App from './pages/App'
+import App from './App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 

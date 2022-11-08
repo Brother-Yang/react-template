@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom'
 import Home from '@/pages/Home'
 import Error from '@/pages/Error'
 import Page from '@/pages/Page'
+import App from '@/pages/App'
 import BasicLayout from '@/components/BasicLayout'
 
 const routes = [
@@ -12,6 +13,7 @@ const routes = [
     path: '/',
     id: 'root',
     name: '根',
+    element: <App />,
     children: [
       {
         index: true,
