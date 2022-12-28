@@ -6,6 +6,7 @@ import Home from '@/pages/Home'
 import Error from '@/pages/Error'
 import Page from '@/pages/Page'
 import App from '@/pages/App'
+import About from '@/pages/About'
 import BasicLayout from '@/components/BasicLayout'
 
 const routes = [
@@ -82,7 +83,7 @@ const routes = [
     path: 'about',
     id: 'about',
     name: '关于',
-    element: <Page />,
+    element: <About />,
   },
   {
     id: '*',
