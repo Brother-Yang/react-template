@@ -1,11 +1,19 @@
 import axios from 'axios'
-// import {notification} from 'antd'
+import { notification } from 'antd'
 
 const baseRequest = axios.create({
   baseURL: 'https://jsonplaceholder.typicode.com/a',
   timeout: 5000,
   headers: { 'X-Custom-Header': 'foobar' },
 })
+
+function errorStatus() {
+  return {
+    401: '未授权，请登录',
+    404: '找不到请求资源',
+    500: '系统异常',
+  }
+}
 
 // 添加请求拦截器
 baseRequest.interceptors.request.use(
@@ -16,7 +24,7 @@ baseRequest.interceptors.request.use(
   },
   function (error) {
     // 对请求错误做些什么
-    // console.log(error, 'error request')
+    console.log(error, 'error request')
     return Promise.reject(error)
   }
 )
@@ -32,8 +40,14 @@ baseRequest.interceptors.response.use(
   function (error) {
     // 超出 2xx 范围的状态码都会触发该函数。
     // 对响应错误做点什么
-    // console.log(error, 'error response')
-    return Promise.reject({ ...error })
+    console.log(error, 'error response')
+
+    notification['error']({
+      message: error.response.status,
+      description: errorStatus()[error.response.status],
+    })
+
+    return Promise.reject(error)
   }
 )
 
@@ -51,7 +65,7 @@ const request = (options = {}) => {
         }
       })
       .catch((err) => {
-        // console.log(err, 'err')
+        console.log(err, 'err')
         reject(err.message)
       })
   })

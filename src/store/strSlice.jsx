@@ -5,7 +5,7 @@ import { request } from '@/util/request'
 // 异步
 export const getUserInfo = createAsyncThunk('str/getUserInfo', async ({ id }, thunkAPI) => {
   console.log(thunkAPI, 'thunkAPI')
-  return await request({ url: `https://jsonplaceholder.typicode.com/posts/${id}` })
+  return await request({ url: `posts/${id}` })
 })
 
 const initialState = {
