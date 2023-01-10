@@ -1,25 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './counterSlice'
+import strReducer from './strSlice'
 
-import { createLogger } from 'redux-logger'
-
-const logger = createLogger()
-
+// 自定义中间件
 const myLog = (store) => (next) => (action) => {
-  console.log(store, 'store1111')
-  console.log(next, 'next111')
-  console.log(action, 'action111')
+  store
   return next(action)
 }
+
 // 官网的例子
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
+    strState: strReducer,
   },
-  middleware: (getDefaultMiddleware) => {
-    console.log(getDefaultMiddleware(), 'getDefaultMiddleware')
-    return getDefaultMiddleware().concat(logger, myLog)
-  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(myLog),
 })
-
-console.log(store.getState(), 'store')

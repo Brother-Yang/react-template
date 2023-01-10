@@ -8,7 +8,7 @@ import Page from '@/pages/Page'
 import App from '@/pages/App'
 import About from '@/pages/About'
 import BasicLayout from '@/components/BasicLayout'
-import Demo from '../pages/Demo'
+import RdeuxToolkitDemo from '../pages/RdeuxToolkitDemo'
 
 const routes = [
   {
@@ -90,7 +90,7 @@ const routes = [
     path: 'demo',
     id: 'demo',
     name: '关于',
-    element: <Demo />,
+    element: <RdeuxToolkitDemo />,
   },
   {
     id: '*',
