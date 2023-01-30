@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 
 import { store } from './store'
 import App from './App'
-import 'antd/dist/antd.less'
+// import 'antd/dist/antd.less'
 
 import './index.less'
 
@@ -17,5 +17,5 @@ root.render(
         <App />
       </Provider>
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
