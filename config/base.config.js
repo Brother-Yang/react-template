@@ -25,6 +25,15 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      // {
+      //   test: /\.css$/i,
+      //   use: [
+      //     {
+      //       loader: MiniCssExtractPlugin.loader,
+      //     },
+      //     'css-loader',
+      //   ],
+      // },
       {
         test: /\.less$/,
         include: /node_modules/,

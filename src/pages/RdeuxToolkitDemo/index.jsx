@@ -3,11 +3,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment } from '@/store/counterSlice'
 import { getUserInfo } from '@/store/strSlice'
 
+import Demo from './../Demo'
+
 import styles from './index.less'
 
 import { Button } from 'antd'
 
-const Demo = () => {
+const RdeuxToolkitDemo = () => {
   const dispatch = useDispatch()
 
   const count = useSelector((state) => state.counter.value)
@@ -25,11 +27,15 @@ const Demo = () => {
       <hr />
 
       <div>
-        <Button onClick={getUserTitle}>点击</Button>
+        <Button onClick={getUserTitle} type="primary">
+          点击
+        </Button>
 
         <h1>{str}</h1>
       </div>
+
+      <Demo />
     </div>
   )
 }
-export default Demo
+export default RdeuxToolkitDemo
