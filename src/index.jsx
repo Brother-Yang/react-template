@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { store } from './store'
 import { Provider } from 'react-redux'
+// 适配
+// import 'amfe-flexible/index.js'
 import './index.less'
 
 import App from './App'

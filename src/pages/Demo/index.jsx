@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import { Button } from 'antd'
+
+import styles from './index.less'
 
 class Demo extends Component {
   render() {
     return (
-      <div>
-        <Button type="dashed" danger>
-          按钮
-        </Button>
+      <div className={styles.Wrap}>
+        <div className={styles.Box}>hello world</div>
       </div>
     )
   }
