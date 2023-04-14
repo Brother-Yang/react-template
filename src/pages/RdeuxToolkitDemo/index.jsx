@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment } from '@/store/counterSlice'
 import { getUserInfo } from '@/store/strSlice'
 
-import Demo from './../Demo'
-
 import styles from './index.less'
 
 import { Button } from 'antd'
@@ -33,8 +31,6 @@ const RdeuxToolkitDemo = () => {
 
         <h1>{str}</h1>
       </div>
-
-      <Demo />
     </div>
   )
 }

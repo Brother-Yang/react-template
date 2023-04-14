@@ -17,5 +17,6 @@ module.exports = {
   plugins: ['react'],
   rules: {
     eqeqeq: 1,
+    'react/prop-types': 0,
   },
 }

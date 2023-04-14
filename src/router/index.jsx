@@ -2,34 +2,22 @@ import React from 'react'
 
 import { Navigate } from 'react-router-dom'
 
-import Home from '@/pages/Home'
 import Error from '@/pages/Error'
-import App from '@/pages/App'
-import About from '@/pages/About'
+import SystemFormItemGridLayoutDemo from '@/pages/SystemFormItemGridLayoutDemo'
 import RdeuxToolkitDemo from '../pages/RdeuxToolkitDemo'
 
 const routes = [
   {
     path: '/',
-    element: <App />,
-    children: [
-      {
-        index: true,
-        element: <Navigate to="home" />,
-      },
-      {
-        path: 'home',
-        element: <Home />,
-      },
-    ],
+    index: true,
+    element: <Navigate to="systemFormItemGridLayoutDemo" />,
   },
   {
-    path: 'about',
-    element: <About />,
+    path: 'systemFormItemGridLayoutDemo',
+    element: <SystemFormItemGridLayoutDemo />,
   },
   {
-    path: 'demo',
-    name: 'RdeuxToolkitDemo',
+    path: 'rdeuxToolkitDemo',
     element: <RdeuxToolkitDemo />,
   },
   {
