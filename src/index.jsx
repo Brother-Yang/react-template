@@ -7,16 +7,20 @@ import { Provider } from 'react-redux'
 // import 'amfe-flexible/index.js'
 import './index.less'
 
+import DictConfig from '@/config/dict/dict.config'
+
 import App from './App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
+DictConfig()
+
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </BrowserRouter>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>
+  // </React.StrictMode>
 )

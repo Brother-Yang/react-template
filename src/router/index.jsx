@@ -5,12 +5,13 @@ import { Navigate } from 'react-router-dom'
 import Error from '@/pages/Error'
 import SystemFormItemGridLayoutDemo from '@/pages/SystemFormItemGridLayoutDemo'
 import RdeuxToolkitDemo from '../pages/RdeuxToolkitDemo'
+import DictDemo from '../pages/DictDemo'
 
 const routes = [
   {
     path: '/',
     index: true,
-    element: <Navigate to="systemFormItemGridLayoutDemo" />,
+    element: <Navigate to="dictDemo" />,
   },
   {
     path: 'systemFormItemGridLayoutDemo',
@@ -19,6 +20,10 @@ const routes = [
   {
     path: 'rdeuxToolkitDemo',
     element: <RdeuxToolkitDemo />,
+  },
+  {
+    path: 'dictDemo',
+    element: <DictDemo />,
   },
   {
     path: '*',

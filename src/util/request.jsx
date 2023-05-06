@@ -2,7 +2,7 @@ import axios from 'axios'
 import { notification } from 'antd'
 
 const baseRequest = axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com/a',
+  baseURL: 'https://jsonplaceholder.typicode.com',
   timeout: 5000,
   headers: { 'X-Custom-Header': 'foobar' },
 })
