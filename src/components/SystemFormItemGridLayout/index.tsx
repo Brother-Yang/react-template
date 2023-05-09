@@ -1,9 +1,22 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { FC, PropsWithChildren } from 'react'
 
 import classnames from 'classnames'
 
 import styles from './index.less'
+
+type TProps = PropsWithChildren<{
+  data: {
+    width: string | number
+    columnCount: number
+    children: {
+      key: string | number
+      label: JSX.Element
+      value: JSX.Element
+    }[]
+    colgroup: string[]
+  }
+  className?: string
+}>
 
 /**
  *
@@ -11,12 +24,12 @@ import styles from './index.less'
  * @param {array} colgroup length=2 使用数组是想保证两个值
  * @returns
  */
-const getGridTemplateColumns = (count, colgroup) => ({
+const getGridTemplateColumns = (count: number, colgroup: string[]) => ({
   gridTemplateColumns: `repeat(${count}, ${colgroup.toString().replace(',', ' ')})`,
 })
 
 // !!!目前先考虑这几种情况
-const SystemFormItemGridLayout = (props) => {
+const SystemFormItemGridLayout: FC<TProps> = (props) => {
   if (!Object.keys(props?.data || {})?.length) return
 
   /**
@@ -43,7 +56,7 @@ const SystemFormItemGridLayout = (props) => {
   )
 }
 
-export const Label = (props) => {
+export const Label: FC<PropsWithChildren<{ className?: string; require?: boolean }>> = (props) => {
   return (
     <div
       className={classnames(styles.Label, props?.className, props?.require ? styles.Require : null)}
@@ -53,7 +66,7 @@ export const Label = (props) => {
   )
 }
 
-export const Value = (props) => {
+export const Value: FC<PropsWithChildren<{ className?: string; colSpan?: number }>> = (props) => {
   return (
     <div
       className={classnames(styles.Value, props?.className)}
@@ -65,24 +78,6 @@ export const Value = (props) => {
       {props.children}
     </div>
   )
-}
-
-// SystemFormItemGridLayout.defaultProps = {}
-
-SystemFormItemGridLayout.propTypes = {
-  className: PropTypes.string,
-  data: PropTypes.shape({
-    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    columnCount: PropTypes.number,
-    children: PropTypes.arrayOf(
-      PropTypes.shape({
-        key: PropTypes.string,
-        label: PropTypes.node,
-        value: PropTypes.node,
-      })
-    ),
-    colgroup: PropTypes.array,
-  }),
 }
 
 export default SystemFormItemGridLayout
