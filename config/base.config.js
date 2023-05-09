@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-  entry: path.join(__dirname, './../src/index.jsx'),
+  entry: path.join(__dirname, './../src/index.tsx'),
   output: {
     path: path.join(__dirname, './../dist'),
     filename: '[name].[chunkhash:8].js',
@@ -19,7 +19,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
