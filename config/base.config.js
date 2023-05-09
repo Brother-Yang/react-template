@@ -11,7 +11,7 @@ module.exports = {
     publicPath: '/',
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
     alias: {
       '@': path.join(__dirname, './../src'),
     },
@@ -82,6 +82,11 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
     ],
   },
