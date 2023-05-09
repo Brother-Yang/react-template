@@ -1,7 +1,5 @@
 import Dict from '../index'
 
-// import { request } from '@/util/request'
-
 export default {
   initStatic() {
     Dict.handlers.SystemHelloReact = () => {
@@ -16,7 +14,7 @@ export default {
       return Promise.resolve([{ name: '大强', sex: '女' }])
     }
 
-    Dict.handlers.SystemRequestApiTest2 = () => (arr) => {
+    Dict.handlers.SystemRequestApiTest2 = () => (arr: unknown[]) => {
       console.log('SystemRequestApiTest2晕行了')
       return Promise.resolve(arr)
     }
