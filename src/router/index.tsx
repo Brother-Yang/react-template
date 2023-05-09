@@ -12,7 +12,7 @@ const routes = [
   {
     path: '/',
     index: true,
-    element: <Navigate to="tsDemo" />,
+    element: <Navigate to="dictDemo" />,
   },
   {
     path: 'systemFormItemGridLayoutDemo',
