@@ -11,7 +11,7 @@ const routes = [
   {
     path: '/',
     index: true,
-    element: <Navigate to="systemFormItemGridLayoutDemo" />,
+    element: <Navigate to="rdeuxToolkitDemo" />,
   },
   {
     path: 'systemFormItemGridLayoutDemo',
