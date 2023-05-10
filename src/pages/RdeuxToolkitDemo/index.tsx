@@ -1,17 +1,18 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment } from '@/store/counterSlice'
-import { getUserInfo } from '@/store/strSlice'
-
-import styles from './index.less'
 
 import { Button } from 'antd'
 
-const RdeuxToolkitDemo = () => {
-  const dispatch = useDispatch()
+import { decrement, increment } from '@/store/counterSlice'
+import { getUserInfo } from '@/store/strSlice'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
 
-  const count = useSelector((state) => state.counter.value)
-  const str = useSelector((state) => state.strState.str)
+import styles from './index.less'
+
+const RdeuxToolkitDemo = () => {
+  const dispatch = useAppDispatch()
+
+  const count = useAppSelector((state) => state.counter.value)
+  const str = useAppSelector((state) => state.strState.str)
 
   const getUserTitle = () => {
     dispatch(getUserInfo({ id: 8 }))

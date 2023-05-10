@@ -3,10 +3,13 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { request } from '@/util/request'
 
 // 异步
-export const getUserInfo = createAsyncThunk('str/getUserInfo', async ({ id }, thunkAPI) => {
-  console.log(thunkAPI, 'thunkAPI')
-  return await request({ url: `posts/${id}` })
-})
+export const getUserInfo = createAsyncThunk(
+  'str/getUserInfo',
+  async ({ id }: { id: number }, thunkAPI) => {
+    console.log(thunkAPI, 'thunkAPI')
+    return await request({ url: `posts/${id}` })
+  }
+)
 
 const initialState = {
   str: 'hello world',
@@ -15,6 +18,7 @@ const initialState = {
 const strSlice = createSlice({
   name: 'str',
   initialState,
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getUserInfo.fulfilled, (state, action) => {
       state.str = action.payload.title
