@@ -1,13 +1,16 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-import { request } from '@/util/request'
+import alovaInstance from '@/util/request/index'
 
 // 异步
 export const getUserInfo = createAsyncThunk(
   'str/getUserInfo',
   async ({ id }: { id: number }, thunkAPI) => {
     console.log(thunkAPI, 'thunkAPI')
-    return await request({ url: `posts/${id}` })
+    const res = alovaInstance
+      .Get<{ id: number; body: string; title: string; userId: number }>(`posts1/${id}`)
+      .send()
+    return res
   }
 )
 
