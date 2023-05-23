@@ -17,5 +17,10 @@ module.exports = {
   plugins: ['react'],
   rules: {
     eqeqeq: 1,
+    'react/prop-types': 0,
+  },
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    parser: 'babel-eslint',
   },
 }

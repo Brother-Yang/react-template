@@ -1,0 +1,29 @@
+.Wrap {
+  display: grid;
+  :global {
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.Label {
+  padding: 10px;
+  text-align: right;
+  &::after {
+    content: ':';
+  }
+}
+
+.Require {
+  &::before {
+    content: '*';
+    color: #ff0000;
+    font-weight: bolder;
+    margin-right: 5px;
+  }
+}
+
+.Value {
+  padding: 10px;
+}
