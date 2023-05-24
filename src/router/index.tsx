@@ -6,6 +6,7 @@ import Error from '@/pages/Error'
 import SystemFormItemGridLayoutDemo from '@/pages/SystemFormItemGridLayoutDemo'
 import RdeuxToolkitDemo from '../pages/RdeuxToolkitDemo'
 import DictDemo from '../pages/DictDemo'
+import IntlDemo from '../pages/IntlDemo'
 
 const routes = [
   {
@@ -24,6 +25,10 @@ const routes = [
   {
     path: 'dictDemo',
     element: <DictDemo />,
+  },
+  {
+    path: 'intlDemo',
+    element: <IntlDemo />,
   },
   {
     path: '*',

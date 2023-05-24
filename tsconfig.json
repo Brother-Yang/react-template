@@ -15,7 +15,9 @@
       "@/*": ["src/*"]
     },
     //
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    // json
+    "resolveJsonModule": true
   },
 
   "include": ["src/**/*"],
