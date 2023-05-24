@@ -2,9 +2,6 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const webpack = require('webpack')
 
 module.exports = {
   entry: path.join(__dirname, './../src/index.tsx'),
@@ -102,25 +99,4 @@ module.exports = {
     new MiniCssExtractPlugin({ filename: '[name].[contenthash:8].css' }),
     new CleanWebpackPlugin(),
   ],
-
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new TerserPlugin({
-        terserOptions: {
-          // 构建时去除注释
-          format: {
-            comments: false,
-          },
-        },
-        // 注释剥离到单独文件
-        extractComments: false,
-      }),
-
-      new CssMinimizerPlugin(),
-
-      // Scope Hoisting
-      new webpack.optimize.ModuleConcatenationPlugin(),
-    ],
-  },
 }
