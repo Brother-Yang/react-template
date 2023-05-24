@@ -1,13 +1,14 @@
 {
   "presets": ["@babel/preset-env", "@babel/preset-react"],
   "plugins": [
-    "@babel/plugin-transform-runtime",
-    [
-      "import",
-      {
-        "libraryName": "antd",
-        "style": true
-      }
-    ]
+    "@babel/plugin-transform-runtime"
+    // 升级 antd5
+    // [
+    //   "import",
+    //   {
+    //     "libraryName": "antd",
+    //     "style": true
+    //   }
+    // ]
   ]
 }
