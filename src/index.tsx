@@ -5,8 +5,13 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import intl from 'react-intl-universal'
 import { ConfigProvider } from 'antd'
-// import enUS_Ant from 'antd/es/locale/en_US'
-import zhCN_Ant from 'antd/es/locale/zh_CN'
+// import enUS_Ant from 'antd/locale/en_US'
+import zhCN_Ant from 'antd/locale/zh_CN'
+
+// antd5 替换 Day.js 语言包
+import dayjs from 'dayjs'
+import 'dayjs/locale/zh-cn'
+dayjs.locale('zh-cn')
 
 // 适配
 // import 'amfe-flexible/index.js'
