@@ -1,73 +1,73 @@
-import { createAlova } from 'alova'
-import GlobalFetch from 'alova/GlobalFetch'
-import ReactHook from 'alova/react'
-
+import axios from 'axios'
 import { notification } from 'antd'
 
-function showErrorMessage(status: number) {
-  let message = ''
-  switch (status) {
-    case 401:
-      message = '未授权，请登录'
-      break
-    case 404:
-      message = '找不到请求资源'
-      break
-    case 500:
-      message = '系统异常'
-      break
-
-    default:
-      message = `出错啦${status}`
-      break
-  }
-
-  return message
-}
-
-// 官网例子
-const alovaInstance = createAlova({
-  baseURL: 'https://jsonplaceholder.typicode.com',
-  statesHook: ReactHook,
-  requestAdapter: GlobalFetch(),
+const baseRequest = axios.create({
+  baseURL: 'http://localhost:3000',
   timeout: 5000,
-  beforeRequest(method) {
-    // 假设我们需要添加token到请求头
-    method.config.headers.Authorization = 'token'
-  },
-
-  // 使用数组的两个项，分别指定请求成功的拦截器和请求失败的拦截器
-  responded: {
-    // 请求成功的拦截器
-    // 当使用GlobalFetch请求适配器时，第一个参数接收Response对象
-    // 第二个参数为当前请求的method实例，你可以用它同步请求前后的配置信息
-    onSuccess: async (response, method) => {
-      if (response.status >= 400) {
-        notification['error']({
-          message: response.status,
-          description: showErrorMessage(response.status),
-        })
-
-        throw new Error(response.statusText)
-      }
-      const json = await response.json()
-
-      // if (json.code !== 200) {
-      //   // 抛出错误或返回reject状态的Promise实例时，此请求将抛出错误
-      //   throw new Error(json.message)
-      // }
-
-      // 解析的响应数据将传给method实例的transformData钩子函数，这些函数将在后续讲解
-      return json
-    },
-
-    // 请求失败的拦截器
-    // 请求错误时将会进入该拦截器。
-    // 第二个参数为当前请求的method实例，你可以用它同步请求前后的配置信息
-    onError: (err, method) => {
-      console.log(err)
-    },
-  },
+  headers: { 'X-Custom-Header': 'foobar' },
 })
 
-export default alovaInstance
+function errorStatus() {
+  return {
+    401: '未授权，请登录',
+    404: '找不到请求资源',
+    500: '系统异常',
+  }
+}
+
+// 添加请求拦截器
+baseRequest.interceptors.request.use(
+  function (config) {
+    // 在发送请求之前做些什么
+    // console.log(config, 'config')
+    return config
+  },
+  function (error) {
+    // 对请求错误做些什么
+    console.log(error, 'error request')
+    return Promise.reject(error)
+  }
+)
+
+// 添加响应拦截器
+baseRequest.interceptors.response.use(
+  function (response) {
+    // 2xx 范围内的状态码都会触发该函数。
+    // 对响应数据做点什么
+    // console.log(response, 'response')
+    return response
+  },
+  function (error) {
+    // 超出 2xx 范围的状态码都会触发该函数。
+    // 对响应错误做点什么
+
+    notification['error']({
+      message: error.response.status,
+      description: errorStatus()[error.response.status as keyof typeof errorStatus],
+    })
+
+    return Promise.reject(error)
+  }
+)
+
+/**
+ *
+ * @param {options} options
+ * @returns
+ */
+const request = (options = {}) => {
+  return new Promise((resolve, reject) => {
+    baseRequest(options)
+      .then((res) => {
+        if (res.status >= 200 && res.status <= 304) {
+          resolve(res.data)
+        }
+      })
+      .catch((err) => {
+        console.log(err, 'err')
+        reject(err.message)
+      })
+  })
+}
+
+export { request }

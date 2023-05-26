@@ -1,21 +1,24 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 
-import alovaInstance from '@/util/request/index'
+import { request } from '@/util/request'
 
 // 异步
-export const getUserInfo = createAsyncThunk(
-  'str/getUserInfo',
-  async ({ id }: { id: number }, thunkAPI) => {
-    console.log(thunkAPI, 'thunkAPI')
-    const res = alovaInstance
-      .Get<{ id: number; body: string; title: string; userId: number }>(`posts1/${id}`)
-      .send()
-    return res
-  }
-)
+export const getUserInfo = createAsyncThunk('str/getUserInfo', async ({}, thunkAPI) => {
+  console.log(thunkAPI, 'thunkAPI')
+  const res = request({ url: 'users' })
+  return res
+})
 
-const initialState = {
-  str: 'hello world',
+export const fetchAddUser = createAsyncThunk('str/fetchAddUser', async (data: any) => {
+  const res = request({ url: 'users', method: 'POST', data })
+
+  return res
+})
+
+const initialState: {
+  users: { id: number; name: string; password: string }[]
+} = {
+  users: [],
 }
 
 const strSlice = createSlice({
@@ -23,8 +26,13 @@ const strSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getUserInfo.fulfilled, (state, action) => {
-      state.str = action.payload.title
+    builder.addCase(getUserInfo.fulfilled, (state, action: PayloadAction<any>) => {
+      state.users = action.payload
+    })
+
+    builder.addCase(fetchAddUser.fulfilled, (state, action) => {
+      // state.users = action.payload
+      console.log(action.payload, 'post')
     })
   },
   // extraReducers: {
