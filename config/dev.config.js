@@ -6,7 +6,7 @@ const { merge } = require('webpack-merge')
 module.exports = merge(baseConfig, {
   mode: 'development',
   devServer: {
-    port: 3008,
+    port: 4000,
     open: true,
     // 刷新页面报错
     historyApiFallback: true,

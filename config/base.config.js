@@ -54,6 +54,13 @@ module.exports = {
               },
             },
           },
+          {
+            loader: 'style-resources-loader',
+            options: {
+              patterns: path.resolve(__dirname, './../src/global.less'),
+              injector: 'append',
+            },
+          },
         ],
       },
       {
@@ -80,6 +87,13 @@ module.exports = {
               lessOptions: {
                 javascriptEnabled: true,
               },
+            },
+          },
+          {
+            loader: 'style-resources-loader',
+            options: {
+              patterns: path.resolve(__dirname, './../src/global.less'),
+              injector: 'append',
             },
           },
         ],

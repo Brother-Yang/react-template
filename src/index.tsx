@@ -23,8 +23,6 @@ import App from './App'
 import enUS from '@/locales/en_Us.json'
 import zhCN from '@/locales/zh_CN.json'
 
-import './index.less'
-
 DictConfig()
 
 const locales = {
