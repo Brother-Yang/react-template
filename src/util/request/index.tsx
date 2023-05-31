@@ -1,11 +1,10 @@
 import axios, { AxiosRequestConfig } from 'axios'
 import { notification } from 'antd'
 
-const baseRequest = axios.create({
-  baseURL: 'http://localhost:3000',
-  timeout: 5000,
-  headers: { 'X-Custom-Header': 'foobar' },
-})
+const baseUrl = 'https://jsonplaceholder.typicode.com/'
+
+axios.defaults.baseURL = baseUrl
+axios.defaults.timeout = 5000
 
 function errorStatus() {
   return {
@@ -16,7 +15,7 @@ function errorStatus() {
 }
 
 // 添加请求拦截器
-baseRequest.interceptors.request.use(
+axios.interceptors.request.use(
   function (config) {
     const token = localStorage.getItem('token')
     if (token) {
@@ -32,7 +31,7 @@ baseRequest.interceptors.request.use(
 )
 
 // 添加响应拦截器
-baseRequest.interceptors.response.use(
+axios.interceptors.response.use(
   function (response) {
     // 2xx 范围内的状态码都会触发该函数。
     // 对响应数据做点什么
@@ -59,14 +58,13 @@ baseRequest.interceptors.response.use(
  */
 const request = <T,>(options: AxiosRequestConfig): Promise<T> => {
   return new Promise<T>((resolve, reject) => {
-    baseRequest(options)
+    axios(options)
       .then((res) => {
         if (res.status >= 200 && res.status <= 304) {
           resolve(res.data)
         }
       })
       .catch((err) => {
-        console.log(err, 'err')
         reject(err.message)
       })
   })
