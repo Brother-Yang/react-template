@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 import { notification } from 'antd'
 
 const baseRequest = axios.create({
@@ -57,8 +57,8 @@ baseRequest.interceptors.response.use(
  * @param {options} options
  * @returns
  */
-const request = (options = {}) => {
-  return new Promise((resolve, reject) => {
+const request = <T,>(options: AxiosRequestConfig): Promise<T> => {
+  return new Promise<T>((resolve, reject) => {
     baseRequest(options)
       .then((res) => {
         if (res.status >= 200 && res.status <= 304) {
