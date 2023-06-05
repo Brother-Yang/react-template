@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 
-import { request } from '@/util/request'
+import { request } from '@/utils/request'
 
 // 异步
 export const getUserInfo = createAsyncThunk('str/getUserInfo', async ({}, thunkAPI) => {
