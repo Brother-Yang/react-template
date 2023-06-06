@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import { TimePicker } from 'antd'
+import { TimePicker } from 'antd';
 
-import intl from 'react-intl-universal'
+import intl from 'react-intl-universal';
 
 const IntlDemo = () => {
   return (
@@ -12,7 +12,7 @@ const IntlDemo = () => {
 
       <TimePicker />
     </div>
-  )
-}
+  );
+};
 
-export default IntlDemo
+export default IntlDemo;

@@ -1,4 +1,4 @@
 declare module '*.less' {
-  const less: { [className: string]: string }
-  export default less
+  const less: { [className: string]: string };
+  export default less;
 }

@@ -1,9 +1,9 @@
-const baseConfig = require('./base.config')
-const { merge } = require('webpack-merge')
+const baseConfig = require('./base.config');
+const { merge } = require('webpack-merge');
 
-const TerserPlugin = require('terser-webpack-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const webpack = require('webpack')
+const TerserPlugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = merge(baseConfig, {
   mode: 'production',
@@ -27,4 +27,4 @@ module.exports = merge(baseConfig, {
       new webpack.optimize.ModuleConcatenationPlugin(),
     ],
   },
-})
+});

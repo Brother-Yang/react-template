@@ -1,22 +1,22 @@
-import React, { FC, PropsWithChildren } from 'react'
+import React, { FC, PropsWithChildren } from 'react';
 
-import classnames from 'classnames'
+import classnames from 'classnames';
 
-import styles from './index.less'
+import styles from './index.less';
 
 type TProps = PropsWithChildren<{
   data: {
-    width: string | number
-    columnCount: number
+    width: string | number;
+    columnCount: number;
     children: {
-      key: string | number
-      label: JSX.Element
-      value: JSX.Element
-    }[]
-    colgroup: string[]
-  }
-  className?: string
-}>
+      key: string | number;
+      label: JSX.Element;
+      value: JSX.Element;
+    }[];
+    colgroup: string[];
+  };
+  className?: string;
+}>;
 
 /**
  *
@@ -26,11 +26,11 @@ type TProps = PropsWithChildren<{
  */
 const getGridTemplateColumns = (count: number, colgroup: string[]) => ({
   gridTemplateColumns: `repeat(${count}, ${colgroup.toString().replace(',', ' ')})`,
-})
+});
 
 // !!!目前先考虑这几种情况
 const SystemFormItemGridLayout: FC<TProps> = (props) => {
-  if (!Object.keys(props?.data || {})?.length) return
+  if (!Object.keys(props?.data || {})?.length) return;
 
   /**
    * columnCount 几列
@@ -39,7 +39,7 @@ const SystemFormItemGridLayout: FC<TProps> = (props) => {
   const {
     className,
     data: { width: _width, columnCount, children, colgroup },
-  } = props
+  } = props;
 
   return (
     <div
@@ -53,8 +53,8 @@ const SystemFormItemGridLayout: FC<TProps> = (props) => {
         </React.Fragment>
       ))}
     </div>
-  )
-}
+  );
+};
 
 export const Label: FC<PropsWithChildren<{ className?: string; require?: boolean }>> = (props) => {
   return (
@@ -63,8 +63,8 @@ export const Label: FC<PropsWithChildren<{ className?: string; require?: boolean
     >
       {props.children}
     </div>
-  )
-}
+  );
+};
 
 export const Value: FC<PropsWithChildren<{ className?: string; colSpan?: number }>> = (props) => {
   return (
@@ -77,7 +77,7 @@ export const Value: FC<PropsWithChildren<{ className?: string; colSpan?: number 
     >
       {props.children}
     </div>
-  )
-}
+  );
+};
 
-export default SystemFormItemGridLayout
+export default SystemFormItemGridLayout;

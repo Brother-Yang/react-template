@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import { Input, Form, Divider } from 'antd'
+import { Input, Form, Divider } from 'antd';
 
-import SystemFormItemGridLayout, { Label, Value } from '@/components/SystemFormItemGridLayout'
+import SystemFormItemGridLayout, { Label, Value } from '@/components/SystemFormItemGridLayout';
 
 const SystemFormItemGridLayoutDemo = () => {
   return (
@@ -102,7 +102,7 @@ const SystemFormItemGridLayoutDemo = () => {
         }}
       />
     </>
-  )
-}
+  );
+};
 
-export default SystemFormItemGridLayoutDemo
+export default SystemFormItemGridLayoutDemo;

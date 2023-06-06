@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-import { Navigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom';
 
-import Error from '@/pages/Error'
-import SystemFormItemGridLayoutDemo from '@/pages/SystemFormItemGridLayoutDemo'
-import RdeuxToolkitDemo from '../pages/RdeuxToolkitDemo'
-import DictDemo from '../pages/DictDemo'
-import IntlDemo from '../pages/IntlDemo'
+import Error from '@/pages/Error';
+import SystemFormItemGridLayoutDemo from '@/pages/SystemFormItemGridLayoutDemo';
+import RdeuxToolkitDemo from '../pages/RdeuxToolkitDemo';
+import DictDemo from '../pages/DictDemo';
+import IntlDemo from '../pages/IntlDemo';
 
 const routes = [
   {
@@ -34,6 +34,6 @@ const routes = [
     path: '*',
     element: <Error />,
   },
-]
+];
 
-export default routes
+export default routes;

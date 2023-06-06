@@ -1,7 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
 
-import counterReducer from './counterSlice'
-import strReducer from './strSlice'
+import counterReducer from './counterSlice';
+import strReducer from './strSlice';
 
 // 自定义中间件
 // const myLog = (store) => (next) => (action) => {
@@ -16,7 +16,7 @@ export const store = configureStore({
     strState: strReducer,
   },
   // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(myLog),
-})
+});
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

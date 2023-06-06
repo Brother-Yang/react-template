@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const Error = () => {
-  return <div>找不到路径了哦</div>
-}
+  return <div>找不到路径了哦</div>;
+};
 
-export default Error
+export default Error;
