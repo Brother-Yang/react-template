@@ -76,7 +76,7 @@ module.exports = {
               // 开启css模块化
               modules: {
                 namedExport: false,
-                localIdentName: '[path][name]-[local]--[hash:base64:5]',
+                localIdentName: '[path][name]-[local]--[contenthash:base64:5]',
               },
             },
           },
