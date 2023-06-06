@@ -1,7 +1,6 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: path.join(__dirname, './../src/index.tsx'),
@@ -9,6 +8,7 @@ module.exports = {
     path: path.join(__dirname, './../dist'),
     filename: '[name].[chunkhash:8].js',
     publicPath: '/',
+    clean: true,
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
@@ -111,6 +111,5 @@ module.exports = {
       template: './public/index.html',
     }),
     new MiniCssExtractPlugin({ filename: '[name].[contenthash:8].css' }),
-    new CleanWebpackPlugin(),
   ],
-}
+};
