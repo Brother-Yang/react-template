@@ -25,5 +25,14 @@ module.exports = merge(baseConfig, {
       // Scope Hoisting
       new webpack.optimize.ModuleConcatenationPlugin(),
     ],
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'commons',
+          chunks: 'all',
+        },
+      },
+    },
   },
 });
