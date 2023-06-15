@@ -2,6 +2,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+// 解决MiniCssExtractPlugin导致热更新无效的问题
+const envMode = process.env.NODE_ENV;
+
 module.exports = {
   entry: path.join(__dirname, './../src/index.tsx'),
   output: {
@@ -40,7 +43,7 @@ module.exports = {
         include: /node_modules/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: envMode === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
@@ -68,7 +71,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: envMode === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',

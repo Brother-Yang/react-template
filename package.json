@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve",
-    "start:dev": "cross-env NODE_ENV=dev webpack serve --config ./config/dev.config.js",
-    "start:stg": "cross-env NODE_ENV=stg webpack serve --config ./config/stg.config.js",
+    "start:dev": "cross-env NODE_ENV=development webpack serve --config ./config/dev.config.js",
+    "start:stg": "cross-env NODE_ENV=production webpack serve --config ./config/stg.config.js",
     "build:dev": "webpack build --config ./config/dev.config.js",
     "build:stg": "webpack build --config ./config/stg.config.js"
   },
