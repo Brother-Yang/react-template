@@ -1,6 +1,6 @@
-const path = require('path')
+const path = require('path');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -10,7 +10,7 @@ module.exports = {
     filename: 'bundle[hash].js',
   },
   devServer: {
-    port: 3008,
+    port: 4001,
     open: true,
   },
   module: {
@@ -30,4 +30,4 @@ module.exports = {
       template: './public/index.html',
     }),
   ],
-}
+};
