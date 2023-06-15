@@ -20,7 +20,4 @@ module.exports = {
     'react/prop-types': 0,
   },
   parser: '@typescript-eslint/parser',
-  parserOptions: {
-    parser: 'babel-eslint',
-  },
 };
