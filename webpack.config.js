@@ -9,6 +9,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, './dist'),
     filename: 'bundle[hash].js',
+    clean: true,
   },
   devServer: {
     port: 4001,
@@ -25,13 +26,13 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.less$/,
         use: [
           {
-            loader: 'style-loader',
+            loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
@@ -61,6 +62,6 @@ module.exports = {
       title: 'react-template',
       template: './public/index.html',
     }),
-    // new MiniCssExtractPlugin({ filename: '[name].[contenthash:8].css' }),
+    new MiniCssExtractPlugin({ filename: '[name].[contenthash:8].css' }),
   ],
 };
