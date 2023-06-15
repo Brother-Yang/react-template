@@ -10,7 +10,7 @@ const Home = () => {
       我是home页
       <input type="text" />
       <span>hello world</span>
-      <h1 className={styles.test}>hello world</h1>
+      <div className={styles.box}>hello world</div>
     </div>
   );
 };

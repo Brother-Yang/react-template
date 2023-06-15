@@ -43,7 +43,7 @@ module.exports = {
               },
             },
           },
-          // 'postcss-loader',
+          'postcss-loader',
           {
             loader: 'less-loader',
             options: {
@@ -61,6 +61,6 @@ module.exports = {
       title: 'react-template',
       template: './public/index.html',
     }),
-    new MiniCssExtractPlugin({ filename: '[name].[contenthash:8].css' }),
+    // new MiniCssExtractPlugin({ filename: '[name].[contenthash:8].css' }),
   ],
 };
