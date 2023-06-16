@@ -5,6 +5,7 @@ import './index.css';
 import styles from './index.less';
 
 const Home = () => {
+  console.log(a);
   return (
     <div>
       我是home页

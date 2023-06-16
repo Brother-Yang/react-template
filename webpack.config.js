@@ -11,6 +11,7 @@ module.exports = {
     filename: 'bundle[hash].js',
     clean: true,
   },
+  devtool: 'eval-cheap-module-source-map',
   devServer: {
     port: 4001,
     open: true,
