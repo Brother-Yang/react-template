@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // 解决MiniCssExtractPlugin导致热更新无效的问题
-const envMode = process.env.NODE_ENV;
+const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: path.join(__dirname, './../src/index.tsx'),
@@ -27,6 +27,9 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader?cacheDirectory',
+          options: {
+            plugins: [isDev && 'react-refresh/babel'].filter(Boolean),
+          },
         },
       },
       // {
@@ -43,7 +46,7 @@ module.exports = {
         include: /node_modules/,
         use: [
           {
-            loader: envMode === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
+            loader: isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
@@ -71,7 +74,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: envMode === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
+            loader: isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
