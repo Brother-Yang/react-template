@@ -4,3 +4,4 @@
 - react-router v6
 - @reduxjs/toolkit react-redux
 - ahooks
+- ts
