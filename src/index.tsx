@@ -11,7 +11,6 @@ import zhCN_Ant from 'antd/locale/zh_CN';
 // antd5 替换 Day.js 语言包
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
-dayjs.locale('zh-cn');
 
 // 适配
 // import 'amfe-flexible/index.js'
@@ -23,6 +22,7 @@ import App from './App';
 import enUS from '@/locales/en_Us.json';
 import zhCN from '@/locales/zh_CN.json';
 
+dayjs.locale('zh-cn');
 DictConfig();
 
 const locales = {
