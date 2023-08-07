@@ -21,6 +21,6 @@
     "lib": ["ES2015.Promise", "dom", "dom.iterable", "es2018"]
   },
 
-  "include": ["src/**/*"],
+  "include": ["./**/*.ts", "./**/*.tsx"],
   "exclude": ["node_modules"]
 }
