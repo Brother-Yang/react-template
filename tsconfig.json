@@ -18,7 +18,7 @@
     "downlevelIteration": true,
     // json
     "resolveJsonModule": true,
-    "lib": ["ES2015.Promise", "dom", "dom.iterable", "es2018"]
+    "lib": ["ES2015.Promise", "dom", "dom.iterable", "ESNext"]
   },
 
   "include": ["./src/**/*.ts", "./src/**/*.tsx"],

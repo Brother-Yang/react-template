@@ -6,6 +6,7 @@ specifiers:
   '@babel/preset-env': ^7.17.10
   '@babel/preset-react': ^7.16.7
   '@babel/runtime': ^7.17.9
+  '@babel/runtime-corejs3': ^7.24.5
   '@pmmmwh/react-refresh-webpack-plugin': ^0.5.10
   '@reduxjs/toolkit': ^1.8.1
   '@types/lodash': ^4.14.194
@@ -19,6 +20,7 @@ specifiers:
   babel-loader: ^8.2.5
   classnames: ^2.3.2
   clean-webpack-plugin: ^4.0.0
+  core-js: '3'
   cross-env: ^7.0.3
   css-loader: ^6.7.1
   css-minimizer-webpack-plugin: ^5.0.0
@@ -52,12 +54,14 @@ specifiers:
 
 dependencies:
   '@babel/runtime': 7.22.5
+  '@babel/runtime-corejs3': 7.24.5
   '@reduxjs/toolkit': 1.9.5_b74wrr2de7fkro4nxddtl5rd7q
   '@types/react': 18.2.18
   ahooks: 3.7.7_react@18.2.0
   antd: 5.6.2_biqbaboplfbrettd7655fr4n2y
   axios: 1.4.0
   classnames: 2.3.2
+  core-js: 3.37.1
   dayjs: 1.11.8
   lodash: 4.17.21
   react: 18.2.0
@@ -1417,6 +1421,14 @@ packages:
   /@babel/regjsgen/0.8.0:
     resolution: {integrity: sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==}
     dev: true
+
+  /@babel/runtime-corejs3/7.24.5:
+    resolution: {integrity: sha512-GWO0mgzNMLWaSYM4z4NVIuY0Cd1fl8cPnuetuddu5w/qGuvt5Y7oUi/kvvQGK9xgOkFJDQX2heIvTRn/OQ1XTg==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      core-js-pure: 3.31.0
+      regenerator-runtime: 0.14.1
+    dev: false
 
   /@babel/runtime/7.22.5:
     resolution: {integrity: sha512-ecjvYlnAaZ/KVneE/OdKYBYfgXV3Ptu6zQWmgEF7vwKhQnvVS6bjMD2XYgj+SNvQ1GfK/pjgokfPkC/2CO8CuA==}
@@ -3189,7 +3201,11 @@ packages:
   /core-js-pure/3.31.0:
     resolution: {integrity: sha512-/AnE9Y4OsJZicCzIe97JP5XoPKQJfTuEG43aEVLFJGOJpyqELod+pE6LEl63DfG1Mp8wX97LDaDpy1GmLEUxlg==}
     requiresBuild: true
-    dev: true
+
+  /core-js/3.37.1:
+    resolution: {integrity: sha512-Xn6qmxrQZyB0FFY8E3bgRXei3lWDJHhvI+u0q9TKIYM49G8pAr0FgnnrFRAmsbptZL1yxRADVXn+x5AGsbBfyw==}
+    requiresBuild: true
+    dev: false
 
   /core-util-is/1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
@@ -6924,6 +6940,10 @@ packages:
 
   /regenerator-runtime/0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
+
+  /regenerator-runtime/0.14.1:
+    resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
+    dev: false
 
   /regenerator-transform/0.15.1:
     resolution: {integrity: sha512-knzmNAcuyxV+gQCufkYcvOqX/qIIfHLv0u5x79kRxuGojfYVky1f15TzZEu2Avte8QGepvUNTnLskf8E6X6Vyg==}

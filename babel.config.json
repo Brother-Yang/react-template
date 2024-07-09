@@ -1,7 +1,15 @@
 {
-  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "presets": [["@babel/preset-env"], "@babel/preset-react"],
   "plugins": [
-    "@babel/plugin-transform-runtime"
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": {
+          "version": 3, // 需要安装 @babel/runtime-corejs3
+          "proposals": true // 使用提案阶段语法
+        }
+      }
+    ]
     // 升级 antd5
     // [
     //   "import",
